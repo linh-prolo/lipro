@@ -1,0 +1,181 @@
+/* =============================================
+   LIPRO LOGISTICS - Custom Styles
+   ============================================= */
+
+:root {
+    --lipro-primary: #1e3a5f;
+    --lipro-accent:  #2d6a9f;
+    --lipro-light:   #e8f0fe;
+    --lipro-sidebar-width: 260px;
+}
+
+/* ─── Sidebar Layout ──────────────────────── */
+#sidebar {
+    width: var(--lipro-sidebar-width);
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--lipro-primary) 0%, var(--lipro-accent) 100%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 100;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-content {
+    margin-left: var(--lipro-sidebar-width);
+    min-height: 100vh;
+    background: #f8f9fa;
+    transition: margin-left 0.3s ease;
+}
+
+/* ─── Sidebar Links ───────────────────────── */
+.sidebar-link {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    margin: 2px 8px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 0.92rem;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-section-title {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 20px 4px;
+    font-weight: 600;
+}
+
+/* Submenu */
+.sidebar-submenu {
+    padding-left: 16px;
+}
+
+.sidebar-submenu .sidebar-link {
+    font-size: 0.87rem;
+    padding: 7px 16px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─── Topbar ──────────────────────────────── */
+#topbar {
+    background: white;
+    border-bottom: 1px solid #dee2e6;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+/* ─── Stat Cards ──────────────────────────── */
+.stat-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.stat-icon {
+    font-size: 2.4rem;
+    opacity: 0.85;
+}
+
+/* ─── Toast Notifications ─────────────────── */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+/* ─── Tables ──────────────────────────────── */
+.table th {
+    background: var(--lipro-light);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: var(--lipro-primary);
+}
+
+/* ─── Badges ──────────────────────────────── */
+.badge-status-pending       { background-color: #ffc107; color: #212529; }
+.badge-status-in_transit    { background-color: #0d6efd; color: white; }
+.badge-status-arrived       { background-color: #6f42c1; color: white; }
+.badge-status-cleared       { background-color: #fd7e14; color: white; }
+.badge-status-delivered     { background-color: #198754; color: white; }
+.badge-status-cancelled     { background-color: #dc3545; color: white; }
+
+/* ─── Page Header ─────────────────────────── */
+.page-header {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ─── Responsive ──────────────────────────── */
+@media (max-width: 991.98px) {
+    #sidebar {
+        transform: translateX(-100%);
+    }
+
+    #sidebar.show {
+        transform: translateX(0);
+    }
+
+    #main-content {
+        margin-left: 0 !important;
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 99;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+}
+
+/* ─── Utility ─────────────────────────────── */
+.cursor-pointer { cursor: pointer; }
+.text-lipro { color: var(--lipro-primary) !important; }
+.bg-lipro   { background: var(--lipro-primary) !important; }

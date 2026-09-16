@@ -1,0 +1,6 @@
+.env
+config/database.php
+config/mail.php
+uploads/
+vendor/
+*.log
