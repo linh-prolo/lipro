@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Insert items mới
         foreach ($items as $item) {
             $qid     = intval($id);
-            $acid    = intval($item['arrival_code_id'] ?? 0);
+            $acid    = intval($item['arrival_code_id'] ?? 0) ?: 'NULL';
             $ccE     = $conn->real_escape_string($item['cost_code']   ?? '');
             $descE   = $conn->real_escape_string($item['description'] ?? '');
             $icurE   = $conn->real_escape_string($item['currency']    ?? 'USD');

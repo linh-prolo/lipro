@@ -164,7 +164,7 @@ try {
     // ── INSERT ITEMS ─────────────────────────────────────────────────
     foreach ($items as $item) {
         $qid             = (int)    $new_id;
-        $arrival_code_id = (int)    ($item['arrival_code_id'] ?? 0);
+        $arrival_code_id = ((int) ($item['arrival_code_id'] ?? 0)) ?: null;
         $cost_code       = (string) ($item['cost_code']       ?? '');
         $description     = (string) ($item['description']     ?? '');
         $item_currency   = (string) ($item['currency']        ?? 'USD');
